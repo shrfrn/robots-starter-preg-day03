@@ -6,7 +6,9 @@ import { AppHeader } from './cmps/AppHeader'
 export function App() {
     return <>
         <AppHeader />
-        <Home />
+        <main>
+            <Home />
+        </main>
         <AppFooter />
     </>
 }

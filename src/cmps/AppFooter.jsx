@@ -1,5 +1,5 @@
 export function AppFooter() {
 	return <footer className="app-footer">
-        <p>robotRights 2023 &copy;</p>
+        <p>Robot Rights 2024 &copy;</p>
     </footer>
 }

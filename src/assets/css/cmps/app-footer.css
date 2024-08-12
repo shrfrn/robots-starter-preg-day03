@@ -1,28 +1,9 @@
 .app-footer {
-    background: #e91e63;
-    color: white;
-
-}
-
-.app-footer section.container {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
+    justify-content: center;
 
-.app-footer h1.logo {
-    flex-grow: 1;
-    font-weight: 600;
-}
-
-.app-footer .back {
-    flex-grow: 1;
-}
-
-.app-footer nav a:not(:last-child) {
-    margin-right: 10px;
-}
-
-.app-footer section.container>section {
-    flex-grow: 1;
+    padding: 0.5em 1em;
+    background: lightsteelblue;
+    
+    color: white;
 }
