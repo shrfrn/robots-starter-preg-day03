@@ -1,5 +1,5 @@
 import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
+import { loadFromStorage, saveToStorage } from './util.service.js'
 
 window.rs = robotService            // Easy access from console
 
@@ -65,7 +65,7 @@ function getDefaultFilter() {
 }
 
 function _createRobots() {
-    let robots = utilService.loadFromStorage(STORAGE_KEY)
+    let robots = loadFromStorage(STORAGE_KEY)
     if(robots && robots.length > 0) return robots
 
     robots = [
@@ -74,5 +74,5 @@ function _createRobots() {
         { id: 'r3', model: 'Dusty', batteryStatus: 100, type: 'Cleaning' },
         { id: 'r4', model: 'DevTron', batteryStatus: 40, type: 'Office' }
     ]
-    utilService.saveToStorage(STORAGE_KEY, robots)
+    saveToStorage(STORAGE_KEY, robots)
 }
