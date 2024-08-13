@@ -8,6 +8,7 @@ import { AppFooter } from './cmps/AppFooter'
 import { AppHeader } from './cmps/AppHeader'
 import { AboutTeam } from './pages/AboutTeam'
 import { AboutVision } from './pages/AboutVision'
+import { RobotDetails } from './pages/RobotDetails'
 
 export function App() {
     return <Router>
@@ -20,6 +21,7 @@ export function App() {
                     <Route path="/about/vision" element={<AboutVision />}/>
                 </Route>
                 <Route path="/robot" element={<RobotIndex />} />
+                <Route path="/robot/:id" element={<RobotDetails />} />
             </Routes>
         </main>
         <AppFooter />

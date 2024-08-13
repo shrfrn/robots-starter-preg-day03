@@ -1,7 +1,5 @@
 import { storageService } from './async-storage.service.js'
-import { utilService } from './util.service.js'
-
-window.rs = robotService            // Easy access from console
+import { loadFromStorage, saveToStorage } from './util.service.js'
 
 export const robotService = {
     query,
@@ -20,10 +18,10 @@ async function query(filterBy) {
     let robots = await storageService.query(STORAGE_KEY)
 
     if (filterBy) {
-        let { minBatteryStatus = 0, mode = '' } = filterBy
+        let { minBatteryStatus = 0, model = '' } = filterBy
 
         robots = robots.filter(robot =>
-            robot.mode.toLowerCase().includes(mode.toLowerCase()) &&
+            robot.model.toLowerCase().includes(model.toLowerCase()) &&
             robot.batteryStatus > minBatteryStatus
         )
     }
@@ -58,14 +56,14 @@ function createRobot(model = '', type = '', batteryStatus = 100) {
 function getDefaultFilter() {
     return {
         type: '',
-        minBatteryStatus: 50,
+        minBatteryStatus: 0,
         maxBattery: '',
         model: ''
     }
 }
 
 function _createRobots() {
-    let robots = utilService.loadFromStorage(STORAGE_KEY)
+    let robots = loadFromStorage(STORAGE_KEY)
     if(robots && robots.length > 0) return robots
 
     robots = [
@@ -74,5 +72,7 @@ function _createRobots() {
         { id: 'r3', model: 'Dusty', batteryStatus: 100, type: 'Cleaning' },
         { id: 'r4', model: 'DevTron', batteryStatus: 40, type: 'Office' }
     ]
-    utilService.saveToStorage(STORAGE_KEY, robots)
+    saveToStorage(STORAGE_KEY, robots)
 }
+
+window.rs = robotService            // Easy access from console
