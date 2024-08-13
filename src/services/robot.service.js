@@ -20,10 +20,10 @@ async function query(filterBy) {
     let robots = await storageService.query(STORAGE_KEY)
 
     if (filterBy) {
-        let { minBatteryStatus = 0, mode = '' } = filterBy
+        let { minBatteryStatus = 0, model = '' } = filterBy
 
         robots = robots.filter(robot =>
-            robot.mode.toLowerCase().includes(mode.toLowerCase()) &&
+            robot.model.toLowerCase().includes(model.toLowerCase()) &&
             robot.batteryStatus > minBatteryStatus
         )
     }
@@ -58,7 +58,7 @@ function createRobot(model = '', type = '', batteryStatus = 100) {
 function getDefaultFilter() {
     return {
         type: '',
-        minBatteryStatus: 50,
+        minBatteryStatus: 0,
         maxBattery: '',
         model: ''
     }
