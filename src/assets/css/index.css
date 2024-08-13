@@ -11,5 +11,5 @@
 @import "./pages/about.css";
 
 /* Components */
-@import "./cmps/app-header.css";
-@import "./cmps/app-footer.css";
+@import "./cmps/AppHeader.css";
+@import "./cmps/AppFooter.css";
